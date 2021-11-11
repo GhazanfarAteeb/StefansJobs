@@ -4,9 +4,8 @@ public class TodoJobs {
     private long id;
     private String name;
 
-    public TodoJobs(long id, String name) {
-        this.id = id;
-        this.name = name;
+    TodoJobs(){
+
     }
 
     public long getId() {

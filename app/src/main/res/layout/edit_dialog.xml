@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/et_name"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:text="Cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"/>
+
+            <Button
+                android:id="@+id/btn_update"
+                android:text="update"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

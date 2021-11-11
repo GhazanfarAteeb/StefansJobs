@@ -14,9 +14,11 @@ import java.util.List;
 public class TodoJobsAdapter extends RecyclerView.Adapter<TodoJobsAdapter.MyHolder> {
     Context context;
     List<TodoJobs> todoJobsList;
+    Listener listener;
 
-    TodoJobsAdapter(Context context) {
+    TodoJobsAdapter(Context context,Listener listener) {
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -30,20 +32,15 @@ public class TodoJobsAdapter extends RecyclerView.Adapter<TodoJobsAdapter.MyHold
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         TodoJobs todoJob = todoJobsList.get(position);
-
-        holder.tvId.setText(String.valueOf(todoJob.getId()));
+        holder.tvId.setText("["+ String.valueOf(todoJob.getId())+"]");
         holder.tvName.setText(todoJob.getName());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                listener.onLongClick(todoJob);
                 return false;
             }
         });
@@ -66,5 +63,10 @@ public class TodoJobsAdapter extends RecyclerView.Adapter<TodoJobsAdapter.MyHold
 
     public void setData(List<TodoJobs> todoJobsList) {
         this.todoJobsList = todoJobsList;
+        notifyDataSetChanged();
+    }
+
+    interface Listener{
+        public void onLongClick(TodoJobs todoJobs);
     }
 }
